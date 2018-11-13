@@ -4,6 +4,30 @@
   * Defines subset of Events known as Meta events
   * Not meant to be used as a concrete class
 
+[Note On / Note Off events](#Note-On-/-Note-Off-events)
+[Aftertouch](#Aftertouch)
+[Control Change](#Control-Change)
+[Program Change](#Program-Change)
+[Channel Aftertouch](#Channel-Aftertouch)
+[Pitch Bend](#Pitch-Bend)
+[System Exclusive Messages](#System-Exclusive-Messages)
+[Sequence Number (Meta Event)](#Sequence-Number-(Meta-Event))
+[Text (Meta Event)](#Text-(Meta-Event))
+[Copyright (Meta Event)](#Copyright-(Meta-Event))
+[Track Name (Meta Event)](#Track-Name-(Meta-Event))
+[Instrument Name (Meta Event)](#Instrument-Name-(Meta-Event))
+[Lyrics (Meta Event)](#Lyrics-(Meta-Event))
+[Marker (Meta Event)](#Marker-(Meta-Event))
+[Cue Point (Meta Event)](#Cue-Point-(Meta-Event))
+[Channel Prefix (Meta Event)](#Channel-Prefix-(Meta-Event))
+[Port (Meta Event)](#Port-(Meta-Event))
+[Set Tempo (Meta Event)](#Set-Tempo-(Meta-Event))
+[SMPTE Offset (Meta Event)](#SMPTE-Offset-(Meta-Event))
+[Time Signature (Meta Event)](#Time-Signature-(Meta-Event))
+[Key Signature](#Key-Signature)
+[Sequencer-Specific (Meta Event)](#Sequencer-Specific-(Meta-Event))
+
+
 ### Note On / Note Off events
 
 * Activation and release of same note are considered separate events
