@@ -1,32 +1,53 @@
-`Event`
+# MIDI File Structure
 
-* `MetaEvent(Event)`
-  * Defines subset of Events known as Meta events
-  * Not meant to be used as a concrete class
+* Composed of chunks:
+  * `SMF = <header_chunk> + <track_chunk> [+ <track_chunk> ...]`
 
-[Note On / Note Off events](#Note-On-/-Note-Off-events)
-[Aftertouch](#Aftertouch)
-[Control Change](#Control-Change)
-[Program Change](#Program-Change)
-[Channel Aftertouch](#Channel-Aftertouch)
-[Pitch Bend](#Pitch-Bend)
-[System Exclusive Messages](#System-Exclusive-Messages)
-[Sequence Number (Meta Event)](#Sequence-Number-(Meta-Event))
-[Text (Meta Event)](#Text-(Meta-Event))
-[Copyright (Meta Event)](#Copyright-(Meta-Event))
-[Track Name (Meta Event)](#Track-Name-(Meta-Event))
-[Instrument Name (Meta Event)](#Instrument-Name-(Meta-Event))
-[Lyrics (Meta Event)](#Lyrics-(Meta-Event))
-[Marker (Meta Event)](#Marker-(Meta-Event))
-[Cue Point (Meta Event)](#Cue-Point-(Meta-Event))
-[Channel Prefix (Meta Event)](#Channel-Prefix-(Meta-Event))
-[Port (Meta Event)](#Port-(Meta-Event))
-[Set Tempo (Meta Event)](#Set-Tempo-(Meta-Event))
-[SMPTE Offset (Meta Event)](#SMPTE-Offset-(Meta-Event))
-[Time Signature (Meta Event)](#Time-Signature-(Meta-Event))
-[Key Signature](#Key-Signature)
-[Sequencer-Specific (Meta Event)](#Sequencer-Specific-(Meta-Event))
+### Header Chunk:
 
+* Chunk composition:
+  * `header_chunk = "MThd" + <header_length> + <format> + <n> + <division>`
+* `"MThd"` 
+  * Literal string "MThd" in hex, identifies file as MIDI file
+  * __4 bytes__
+* `<header_length>`
+  * Length of header chunk (always 6 bytes long?)
+  * __4 bytes__
+* `<format>`
+  * 0 = single track file format
+  * 1 = multiple track file format
+  * 2 = multiple song file format (series of type 0 files)
+  * __2 bytes__
+* `<n>`
+  * Number of track chucnks that follow header chunk
+  * __2 bytes__
+* `<division>`
+  * 
+
+# Events, Corresponding Classes
+
+* [Note On / Note Off events](#Note-On-/-Note-Off-events)
+* [Aftertouch](#Aftertouch)
+* [Control Change](#Control-Change)
+* [Program Change](#Program-Change)
+* [Channel Aftertouch](#Channel-Aftertouch)
+* [Pitch Bend](#Pitch-Bend)
+* [System Exclusive Messages](#System-Exclusive-Messages)
+* [Sequence Number (Meta Event)](#Sequence-Number-(Meta-Event))
+* [Text (Meta Event)](#Text-(Meta-Event))
+* [Copyright (Meta Event)](#Copyright-(Meta-Event))
+* [Track Name (Meta Event)](#Track-Name-(Meta-Event))
+* [Instrument Name (Meta Event)](#Instrument-Name-(Meta-Event))
+* [Lyrics (Meta Event)](#Lyrics-(Meta-Event))
+* [Marker (Meta Event)](#Marker-(Meta-Event))
+* [Cue Point (Meta Event)](#Cue-Point-(Meta-Event))
+* [Channel Prefix (Meta Event)](#Channel-Prefix-(Meta-Event))
+* [Port (Meta Event)](#Port-(Meta-Event))
+* [Set Tempo (Meta Event)](#Set-Tempo-(Meta-Event))
+* [SMPTE Offset (Meta Event)](#SMPTE-Offset-(Meta-Event))
+* [Time Signature (Meta Event)](#Time-Signature-(Meta-Event))
+* [Key Signature](#Key-Signature)
+* [Sequencer-Specific (Meta Event)](#Sequencer-Specific-(Meta-Event))
 
 ### Note On / Note Off events
 
